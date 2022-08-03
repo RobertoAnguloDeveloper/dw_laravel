@@ -1,9 +1,14 @@
 @extends('layouts.app')
 
 <?php
-    /* Call model Usuario*/
-    use App\Models\User;
-    $users = User::all();
+    // use App\Http\Controllers\ControladorUsuario;
+    // $userLogged = Auth::user();
+    // $email = $userLogged->email;
+    // $user = ControladorUsuario::existeEmail($email);
+    // if(!$user){
+    //     $user = ControladorUsuario::buscarPorEmail($email);
+    //     ControladorUsuario::clonarUsuario($user);
+    // }
 ?>
 
 @section('content')
@@ -13,8 +18,7 @@
         <div class="col-md-8">
             <table>
                 <tr>
-                    {{$user = Auth::user();
-                    }}
+
                 </tr>
             </table>
         </div>

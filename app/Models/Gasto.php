@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Gasto
- * 
+ *
  * @property int $id
  * @property string $usuario_id
  * @property string $fecha
@@ -20,7 +20,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $nombreGasto
  * @property string $lugar
  * @property string $descripcion
- * 
+ *
  * @property Usuario $usuario
  *
  * @package App\Models
@@ -33,10 +33,10 @@ class Gasto extends Model
 	protected $fillable = [
 		'usuario_id',
 		'fecha',
-		'valorTotalSinIva',
-		'ivaTotal',
-		'valorTotalConIva',
-		'nombreGasto',
+		'valor_total_sin_iva',
+		'iva_total',
+		'valor_total_con_iva',
+		'nombre_gasto',
 		'lugar',
 		'descripcion'
 	];

@@ -11,13 +11,13 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Usuario
- * 
+ *
  * @property string $cedula
  * @property string $clave
  * @property string $nombre
  * @property string $telefono
  * @property string $email
- * 
+ *
  * @property Collection|Gasto[] $gastos
  *
  * @package App\Models
@@ -32,8 +32,8 @@ class Usuario extends Model
 	protected $fillable = [
 		'clave',
 		'nombre',
+        'email',
 		'telefono',
-		'email'
 	];
 
 	public function gastos()

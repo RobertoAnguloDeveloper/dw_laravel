@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\ControladorUsuario;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +25,8 @@ Route::get('/', function () {
     }
 });
 
-/*List all users from database*/
+/*Send all request data to ControladorUsuario*/
+Route::post('agregar', 'App\Http\Controllers\ControladorUsuario@agregar');
 
 
 Auth::routes();

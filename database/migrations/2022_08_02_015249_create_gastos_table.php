@@ -17,10 +17,10 @@ class CreateGastosTable extends Migration
             $table->integer('id', true);
             $table->string('usuario_id')->index('fk_usuario');
             $table->string('fecha');
-            $table->string('valorTotalSinIva');
-            $table->string('ivaTotal');
-            $table->string('valorTotalConIva');
-            $table->string('nombreGasto');
+            $table->string('valor_total_sin_iva');
+            $table->string('iva_total');
+            $table->string('valor_total_con_iva');
+            $table->string('nombre_gasto');
             $table->string('lugar');
             $table->text('descripcion');
         });
