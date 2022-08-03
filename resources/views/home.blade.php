@@ -13,20 +13,8 @@
         <div class="col-md-8">
             <table>
                 <tr>
-                    {{-- List all users from Database --}}
-
-                    @foreach ($users as $user)
-                        <tr>
-                            <td>{{ $user->name }}</td>
-                        </tr>
-                        <tr>
-                            <td>{{ $user->password }}</td>
-                        </tr>
-                        <tr>
-                            <td>{{ $user->email }}</td>
-                        </tr>
-
-                    @endforeach
+                    {{$user = Auth::user();
+                    }}
                 </tr>
             </table>
         </div>
