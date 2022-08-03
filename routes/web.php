@@ -23,6 +23,9 @@ Route::get('/', function () {
     }
 });
 
+/*List all users from database*/
+
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
