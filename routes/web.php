@@ -16,6 +16,8 @@ use App\Http\Controllers\ControladorUsuario;
 |
 */
 
+Route::resource('usuarios','\App\Http\Controllers\ControladorUsuario');
+
 Route::get('/', function () {
     /*If an user is logged dont sent to login page */
     if (Auth::check()) {
@@ -25,8 +27,10 @@ Route::get('/', function () {
     }
 });
 
-/*Send all request data to ControladorUsuario*/
-Route::post('agregar', 'App\Http\Controllers\ControladorUsuario@agregar');
+/* Recieve a get request 'prueba' that send to nojoda view */
+Route::get('/prueba', function () {
+    return view('/nojoda');
+});
 
 
 Auth::routes();

@@ -24,47 +24,6 @@ class ControladorUsuario extends Controller {
         return view('usuario.index')->with('usuarios',$usuarios);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function agregar() {
-        // /* Add name, email and password to users table */
-        // $userLogged = Auth::user();
-        // $user = new User();
-        // $user->name = request('nombre');
-        // $user->email = request('email');
-        // $user->password = bcrypt(request('clave'));
-
-        // /* Send all request data to usuarios table */
-        // $usuario = new Usuario;
-        // $usuario->cedula = request('cedula');
-        // $usuario->clave = request('clave');
-        // $usuario->nombre = request('nombre');
-        // $usuario->telefono = request('telefono');
-        // $usuario->email = request('email');
-
-        // $usuario->save();
-        // $user->save();
-
-        return view("nojoda");
-    }
-
-    public function clonarUsuario() {
-        /* Get session user data */
-        $user = Auth::user();
-        /*Add this user to usuarios table */
-        $usuario = new Usuario();
-        $usuario->cedula = "1234568";
-        $usuario->clave = $user->password;
-        $usuario->nombre = $user->name;
-        $usuario->email = $user->email;
-        $usuario->telefono = "30000000";
-
-        $usuario->save();
-    }
-
     /*Buscar por email */
     public function buscarPorEmail($email) {
         $usuario = Usuario::where('email', $email)->first();
@@ -100,7 +59,6 @@ class ControladorUsuario extends Controller {
 
         return redirect('usuarios');
     }
-
 
 }
 

@@ -1,15 +1,8 @@
 @extends('layouts.app')
 
-<?php
-    // use App\Http\Controllers\ControladorUsuario;
-    // $userLogged = Auth::user();
-    // $email = $userLogged->email;
-    // $user = ControladorUsuario::existeEmail($email);
-    // if(!$user){
-    //     $user = ControladorUsuario::buscarPorEmail($email);
-    //     ControladorUsuario::clonarUsuario($user);
-    // }
-?>
+{{-- @section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop --}}
 
 @section('content')
 
@@ -24,4 +17,5 @@
         </div>
     </div>
 </div>
+
 @endsection
