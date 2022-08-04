@@ -1,0 +1,680 @@
+*{
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+#background {
+    z-index: -100;
+    opacity: 0.8;
+    filter: blur(15px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#header {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', 'Arial', 'sans-serif';
+    background-color: #ffe600;
+    background-image: linear-gradient(#ffe600, #ffc200);
+    color: #fff;
+    text-shadow: 1.5px 1px 5px #000;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', 'Arial', 'sans-serif';
+    background-color: #ffe600;
+    background-image: linear-gradient(#ffe600, #ffc200);
+    color: #fff;
+    text-shadow: 1.5px 1px 5px #000;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.menu-barra:not([class="barra-elementos"]) {
+    /*Arrange in front*/
+    z-index: 1;
+    /*Position*/
+    position: fixed;
+    right: 1%;
+    width: 170px;
+    margin-top: 1%;
+
+    padding: 5px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', 'Arial', 'sans-serif';
+    background-color: #ffe600;
+    color: #fff;
+    text-shadow: 0px 0px 1px #000;
+    font-size: 15px;
+    border-radius: 40px;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.menu-barra li a:not([class="barra-elementos"]){
+    position: relative;
+    display: inline-block;
+    left: 10%;
+    text-decoration: none;
+    list-style-type: none;
+    text-shadow: 0px 0px 0px #000;
+    color: rgb(0, 0, 0);
+}
+
+.menu-barra li a:hover:not([class="barra-elementos"]){
+    background-color: #ffc200;
+    box-shadow: 0px 0px 5px #000;
+    color: #fff;
+    border-radius: 5px;
+    text-shadow: 1.5px 1px 5px #000;
+}
+
+#gastos{
+    display: none;
+}
+
+.barra-elementos:not([href="index.php"],[name="userMenu"]) {
+    display: inline-block;
+    margin-right: 5px;
+    margin-left: 5px;
+    text-decoration: none;
+    list-style-type: none;
+    text-shadow: 0px 0px 0px #000;
+    color: rgb(0, 0, 0);
+    padding: 4px;
+}
+
+.barra-elementos:hover:not([href="index.php"],[name="userMenu"]){
+    background-color: #ffc200;
+    box-shadow: 0px 0px 5px #000;
+    color: #fff;
+    border-radius: 30px;
+    text-shadow: 1.5px 1px 5px #000;
+    padding: 4px;
+}
+
+.barra-elementos img[id="home-icon"] {
+    width: 25px;
+    margin-top:-6px;
+    margin-bottom: -12px;
+    text-decoration: none;
+    list-style-type: none;
+    text-shadow: 0px 0px 0px #000;
+    color: rgb(0, 0, 0);
+}
+
+.barra-elementos img[id="home-icon"]:hover{
+    background-color: #ffc200;
+    box-shadow: 0px 0px 5px #000;
+    color: #fff;
+    border-radius: 30px;
+    text-shadow: 1.5px 1px 5px #000;
+}
+
+.barra-elementos img[id="login-icon"] {
+    display: none;
+    width: 25px;
+    margin-bottom: -8px;
+    margin-top: -6px;
+    text-decoration: none;
+    list-style-type: none;
+    text-shadow: 0px 0px 0px #000;
+    color: rgb(0, 0, 0);
+}
+
+.barra-elementos img[id="login-icon"]:hover{
+    background-color: #ffc200;
+    box-shadow: 0px 0px 5px #000;
+    color: #fff;
+    border-radius: 30px;
+    text-shadow: 1.5px 1px 5px #000;
+}
+
+#logData{
+    display: none;
+    position: absolute;
+    top: 110px;
+    right: 1.1%;
+    list-style-type: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', 'Arial', 'sans-serif';
+    background-color: #ffe600;
+    background-image: linear-gradient(#ffe600, #ffc200);
+    box-shadow: 0px 0px 5px #000;
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#nombreUsuario{
+    color: rgb(0, 17, 255);
+    text-shadow: unset;
+    font-weight: unset;
+
+}
+
+#adminCuentas{
+    display: none;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#adminCuentas:hover{
+    background-color: #ffffff;
+    color: rgb(0, 21, 255);
+    text-shadow: 0.5px 1px 1px rgb(255, 255, 255);
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+}
+
+#cerrarSesion{
+    color: rgb(255, 255, 255);
+}
+
+#cerrarSesion:hover{
+    background-color: #ffffff;
+    color: rgb(255, 0, 0);
+    text-shadow: 0.5px 1px 1px rgb(255, 255, 255);
+    border: solid 5px rgb(255, 0, 0);
+
+    border-radius: 10px;
+}
+
+#studentData {
+    margin: 9%;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 201px;
+    color: #fff;
+}
+
+.popup{
+    display: none;
+    background-color: #ffe600;
+    background-image: linear-gradient(#ffe600, #ffc200);
+    box-shadow: 0px 0px 10px #000;
+    text-align: center;
+    position: fixed;
+    border-radius: 10px;
+    margin-left: 35px;
+}
+
+.popup li{
+    padding: 3px;
+    color: #000;
+    text-shadow: 1px 1px 1px #000;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.popup a{
+    padding: 3px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.popup a:hover{
+    padding: 3px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    font-weight: unset;
+    text-shadow: 0.5px 1px 1px rgb(255, 255, 255);
+}
+
+.contenedor{
+    border: 2px solid black;
+    width: 50%;
+    height: 20%;
+    box-sizing: border-box;
+    background-color: rgba(182, 182, 182, 0.258);
+    position: absolute;
+    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.contenedorLogin{
+    display: block;
+    border: 2px solid black;
+    width: 35%;
+    height: 63%;
+    padding: 2%;
+    box-sizing: border-box;
+    background-color: rgba(255, 230, 0,0.697);
+    position: absolute;
+    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#recoveryPass{
+    /* Hide design of a button */
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #000;
+    font-size: unset;
+    font-weight: unset;
+    text-shadow: unset;
+    padding: unset;
+    margin: unset;
+    text-decoration: underline;
+    text-align: unset;
+    font-family: unset;
+}
+
+#recoveryPass:hover{
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: unset;
+    font-size: unset;
+    font-weight: unset;
+    text-shadow: unset;
+    box-shadow: unset;
+    padding: unset;
+    margin: unset;
+    text-decoration: underline;
+    text-align: unset;
+    font-family: unset;
+}
+
+.contenedorSignin{
+    display: block;
+    border: 2px solid black;
+    width: 45%;
+    height: 70%;
+    padding: 2%;
+    box-sizing: border-box;
+    background-color: rgba(255, 230, 0,0.697);
+    position: absolute;
+    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#account{
+    position: unset;
+    top: unset;
+    left: unset;
+    transform: unset;
+    margin-top: 2.5%;
+    padding-top: 1%;
+    width: 36%;
+    height: 450px;
+}
+
+#account label{
+    color: rgb(255, 255, 255);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', 'Arial', 'sans-serif';
+    text-shadow: 1px 1px 3px #000;
+
+}
+
+#account input[type="text"], #account input[type="password"], #account input[type="email"], #account input[type="number"]{
+    margin-bottom: 3%;
+}
+
+#listaUsuarios{
+    width: 90%;
+    height: 95%;
+    padding: 1%;
+    display: block;
+    position: absolute;
+    top: 51%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border: 2px solid black;
+    box-sizing: border-box;
+    background-color: rgba(255, 230, 0,0.697);
+    border-radius: 10px;
+}
+
+.tabla2{
+    margin-top: 2%;
+    width: 95%;
+    border-collapse: collapse;
+    border-style: groove;
+    background-color: rgba(248, 225, 121, 0.916);
+    text-align: center;
+}
+
+.tabla2 th{
+    width: 0.5%;
+    padding: 0.5%;
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.tabla2 td{
+    border: 1px solid rgb(0, 0, 0);
+    padding: 2px;
+    text-align: center;
+}
+
+.tabla2 input[type="button"]{
+    margin-top: unset;
+    display: inline-block;
+    width: 45%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.tabla2 input[type="text"]{
+    margin-top: unset;
+    display: inline-block;
+    border-style: hidden;
+    background-attachment: unset;
+}
+
+.tabla2 td img{
+    width: 20px;
+    height: 20px;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+#tablaUsuarios{
+    margin-top: 2%;
+    width: 95%;
+    border-collapse: collapse;
+    border-style: groove;
+    background-color: rgba(248, 225, 121, 0.916);
+    text-align: center;
+}
+
+#tablaUsuarios th{
+    width: 0.5%;
+    padding: 0.5%;
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+#tablaUsuarios td{
+    border: 1px solid rgb(0, 0, 0);
+    padding: 2px;
+    text-align: center;
+}
+
+#tablaUsuarios input[type="button"]{
+    margin-top: unset;
+    display: inline-block;
+    width: 45%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+#tablaUsuarios input[type="text"]{
+    margin-top: unset;
+    display: inline-block;
+    border-style: hidden;
+    background-attachment: unset;
+}
+
+#tablaUsuarios td img{
+    width: 20px;
+    height: 20px;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+#listaGastos{
+    width: 100%;
+    height: 100%;
+    padding: 1%;
+    border: 2px solid black;
+    box-sizing: border-box;
+    background-color: rgba(255, 230, 0,0.697);
+    border-radius: 10px;
+}
+
+#listaGastos input[name="id"]{
+    width: 166px;
+    margin: unset;
+    display: inline-block;
+    position: unset;
+    top: unset;
+    left: unset;
+    transform: unset;
+}
+
+#listaGastos button{
+    width: 40px;
+    padding-top: 10%;
+    border-radius: 30px;
+    border-color: #000000;
+    box-shadow: 0 0 30px 30px #ffc4008e inset;
+    transition: box-shadow 0.1s ease-in-out;
+}
+
+#listaGastos button:hover{
+    width: 40px;
+    padding-top: 10%;
+    box-shadow: 0 0 1px 0 #ffc200 inset, 0 1px 1px 1px #ffc200;
+    color: #ffc200;
+    cursor: pointer;
+}
+
+.tituloForm{
+    padding: unset;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', 'Arial', 'sans-serif';
+    color: #fff;
+    text-shadow: 2.5px 1.5px 6px #000;
+    font-size: 185%;
+    font-weight: bold;
+    text-align: center;
+}
+
+#tituloGastos, #tituloTusGastos, #tituloTodosGastos{
+    margin-top: 1.5%;
+}
+
+#regUsuario{
+    margin-bottom: 6%;
+}
+
+#gastoAgregar{
+    margin: unset;
+    padding: 2%;
+    width: 50%;
+    height: 85%;
+}
+
+input:not([type="submit"]) {
+    display: block;
+    border: 1px solid rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
+    border-radius: 4px;
+    margin-top: 5px;
+    padding: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input[type="submit"], input[type="button"], input[type="reset"]{
+    display: block;
+    border: 1px solid rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
+    border-radius: 4px;
+    margin-top: 5px;
+    padding: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 80%;
+    font-weight: bold;
+}
+
+input[type="submit"]:hover {
+    background-color: #ffc200;
+    box-shadow: 0px 0px 5px #000;
+    color: #fff;
+    text-shadow: 1.5px 1px 5px #000;
+    cursor: pointer;
+}
+
+input[type="button"]:hover {
+    background-color: #ffc200;
+    box-shadow: 0px 0px 5px #000;
+    color: #fff;
+    text-shadow: 1.5px 1px 5px #000;
+    cursor: pointer;
+}
+
+input[type="reset"]:hover {
+    background-color: #ffc200;
+    box-shadow: 0px 0px 5px #000;
+    color: #fff;
+    text-shadow: 1.5px 1px 5px #000;
+    cursor: pointer;
+}
+
+input[name="guardar"]{
+    width: 100%;
+}
+
+.cuadro{
+    width: 50%;
+    height: 80%;
+    background-color: rgba(255, 230, 0,0.697);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 10px;
+}
+
+#recoveryPass{
+    text-decoration: underline;
+    color: rgb(255, 0, 0);
+}
+
+#btn-x{
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    z-index: 100;
+    background-color: #ff0000;
+    box-shadow: 0px 5px 5px #000;
+    text-shadow: 1px 1px 5px #000;
+    border: 2px solid rgb(0, 0, 0);
+    text-decoration: none;
+    list-style-type: none;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;;
+    cursor: pointer;
+}
+
+#btn-x:hover{
+    background-color: #ffc200;
+    position: absolute;
+    top: -0.01%;
+    box-shadow: 0px 10px 5px #000;
+    color:#ff0000;
+    background-color:#ffffff;
+}
+
+#formsFrame {
+    width: 75%;
+    height: 70vh;
+    margin-top: 2.6%;
+    border-radius: 40px;
+    box-shadow: 0px 0px 10px #000;
+    background-color: rgba(255, 255, 255, 0.545);
+}
+
+.formulario {
+    font-size: 1em;
+    padding: 5px;
+    margin-right: 10px;
+    margin-left: 80px;
+    margin-top: 30px;
+    box-shadow: 0px 0px 15px #000;
+    border-radius: 10px;
+    background-color: #fff;
+    display: flex;
+    float: left;
+}
+
+.formulario input{
+    margin-bottom:  5px;
+}
+
+.formulario input[type="datetime"]{
+    width: 102%;
+}
+
+.formulario input[type="email"]{
+    width: 100.5%;
+}
+
+.tabla {
+    padding: 0 auto;
+    margin-right: 80px;
+    margin-left: 10px;
+    margin-top: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    box-shadow: 0px 0px 15px #000;
+    border-radius: 10px;
+    display: flex;
+    float: right;
+}
+
+.tabla th {
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.tabla td {
+    text-align: center;
+    font-size: 12px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+
+.tabla tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+.tabla tr:nth-child(odd) {
+    background-color: rgb(211, 211, 211);
+}

@@ -58,6 +58,10 @@
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
+                                    <form id="datosUsuario" action="/usuarios" method="POST">
+                                        @csrf
+                                        <input type="submit" class="dropdown-item" name="user_data" value="{{ __('Datos de usuario') }}">
+                                    </form>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -67,7 +71,11 @@
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
+
                                     </form>
+
+
+
                                 </div>
                             </li>
 

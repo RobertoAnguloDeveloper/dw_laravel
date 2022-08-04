@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\ControladorUsuario;
 
 
 /*
@@ -26,12 +25,6 @@ Route::get('/', function () {
         return view('/auth/login');
     }
 });
-
-/* Recieve a get request 'prueba' that send to nojoda view */
-Route::get('/prueba', function () {
-    return view('/nojoda');
-});
-
 
 Auth::routes();
 
