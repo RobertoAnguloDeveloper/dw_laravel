@@ -41,14 +41,14 @@
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
-                                <li style="font-size: 20px; color: white; text-shadow: 1px 1px 1px #000;" class="nav-item">
-                                    <center><b><a  class="btn nav-link" href="{{ route('login') }}">{{ __('Iniciar sesión') }}</a></b></center>
+                                <li class="nav-item">
+                                    <center><b><a style="font-size: 20px; color: white; text-shadow: 1px 1px 1px #000;" class="btn nav-link" href="{{ route('login') }}">{{ __('Iniciar sesión') }}</a></b></center>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
-                                <li style="font-size: 20px; color: white; text-shadow: 1px 1px 1px #000;" class="nav-item">
-                                    <center><a class="btn nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a></center>
+                                <li class="nav-item">
+                                    <center><a style="font-size: 20px; color: white; text-shadow: 1px 1px 1px #000;" class="btn nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a></center>
                                 </li>
                             @endif
                         @else
