@@ -26,26 +26,40 @@ class ControladorUsuario extends Controller {
 
             case isset($_POST['edita']):
                 $usuario = ControladorUsuario::buscarPorCedula($request->get('cedula'));
+                $user = User::find(Auth::user()->id);
 
-                $usuario->clave = request('clave');
-                $usuario->nombre = request('nombre');
+                $usuario->clave = $request->get('clave');
+                $user->password = bcrypt($request->get('clave'));
+
+                $usuario->nombre = $request->get('nombre');
+                $user->name = $request->get('nombre');
+
                 $validarEmail = ControladorUsuario::buscarPorEmail($request->get('email'));
                 if($validarEmail != null) {
                     if(Auth::user()->email == $request->get('email')){
                         $usuario->email = $request->get('email');
+                        $user->email = $request->get('email');
                     } else {
                         echo '<script>alert("El email ya esta en uso");</script>';
                     }
                 }else{
                     $usuario->email = $request->get('email');
+                    $user->email = $request->get('email');
                 }
-                
-                $usuario->telefono = request('telefono');
+
+                $usuario->telefono = $request->get('telefono');
+
                 $usuario->save();
+                $user->save();
+
                 $_REQUEST['accion'] = 'editarUsuario';
                 return view('home')->with('usuario', $usuario);
                 break;
 
+                case isset($_POST['listarUsuarios']):
+                $usuarios = Usuario::all();
+                $_REQUEST['accion'] = 'listarUsuarios';
+                
             default:
                 break;
         }

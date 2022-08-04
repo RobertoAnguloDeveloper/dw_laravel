@@ -2,11 +2,11 @@
 
 @section('content')
 
-@if(isset($_REQUEST['accion']))
+@if(isset($_REQUEST['accion']) && $_REQUEST['accion'] == 'datosUsuario')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <div class="card">
+                <div   class="card">
                     <div class="card-header">{{ __('Datos usuario') }}</div>
 
                     <div class="card-body">
@@ -74,6 +74,48 @@
         document.getElementById("telefono").disabled = false;
     }
 </script>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 @endif
+@php
+if (!isset($_REQUEST['accion']) || $_REQUEST['accion'] != 'datosUsuario') {
+echo "<div class='container'>
+    <div class='row justify-content-center >
+        <div class='col-md-8'>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+    </div>
+</div>";
+}
+@endphp
+
 @endsection
+
 
