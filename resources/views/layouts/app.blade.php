@@ -20,8 +20,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 </head>
-<body>
-    <div style="background-color: rgba(0, 0, 0, 0.699);" id="app" >
+<body style="background-color: rgba(0, 0, 0, 0.923);">
+    <div id="app" >
         <nav class="navbar navbar-expand-md navbar-light bg-warning shadow-sm">
             <div class="container">
                 <a style="font-size: 50px; color: white; text-shadow: 1px 1px 1px #000;" class="navbar-brand" href="{{ url('/') }}">
@@ -53,12 +53,11 @@
                             @endif
                         @else
                             <li class="dropdown">
-                                <a style="font-size: 20px; color: white; text-shadow: 1px 1px 1px #000;" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a style="font-size: 20px; color: white; text-shadow: 1px 1px 1px #000;" id="navbarDropdown" class="btn nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <b>{{ Auth::user()->name }}</b>
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
                                     <form id="datosUsuario" action="/usuarios" method="POST">
                                         @csrf
                                         <input type="submit" class="dropdown-item" name="user_data" value="{{ __('Datos de usuario') }}">
@@ -66,7 +65,7 @@
 
                                     <form id="datosUsuario" action="/usuarios" method="POST">
                                         @csrf
-                                        <input type="submit" class="dropdown-item" name="user_data" value="{{ __('Administrar Usuarios') }}">
+                                        <input type="submit" class="dropdown-item" name="user_list" value="{{ __('Administrar Usuarios') }}">
                                     </form>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
@@ -77,11 +76,7 @@
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
-
                                     </form>
-
-
-
                                 </div>
                             </li>
 
@@ -91,9 +86,10 @@
             </div>
         </nav>
 
-        <main style="background-color: rgba(0, 0, 0, 0.699);" class="py-5">
+        <main class="py-4 ">
             @yield('content')
         </main>
+
     </div>
 
 </body>

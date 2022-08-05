@@ -54,7 +54,7 @@
                                     <button name="activaInputs" onclick="editar()" type="button" class="btn btn-primary">
                                         {{ __('Editar') }}
                                     </button>
-                                    <button name="edita" onclick="document.getElementById('cedula').disabled = false;" type="submit" class="btn btn-primary">
+                                    <button name="editaUsuario" onclick="document.getElementById('cedula').disabled = false;" type="submit" class="btn btn-primary">
                                         {{ __('Guardar') }}
                                     </button>
                                 </div>
@@ -75,46 +75,7 @@
     }
 </script>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
 @endif
-@php
-if (!isset($_REQUEST['accion']) || $_REQUEST['accion'] != 'datosUsuario') {
-echo "<div class='container'>
-    <div class='row justify-content-center >
-        <div class='col-md-8'>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-        </div>
-    </div>
-</div>";
-}
-@endphp
 
 @endsection
 

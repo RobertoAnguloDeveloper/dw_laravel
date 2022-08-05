@@ -14,9 +14,15 @@ class ControladorUsuario extends Controller {
         $this->middleware('auth');
     }
 
+    public function buscarUser(Usuario $usuario){
+        $user = User::where('email', $usuario->email)->first();
+        return $user;
+    }
+
     public function store(Request $request) {
         $usuario = new Usuario();
-        /*Switch $request key to change between methods */
+        $usuarios = Usuario::all();
+
         switch ($_POST) {
             case isset($_POST['user_data']):
                 $usuario = ControladorUsuario::buscarPorEmail(Auth::user()->email);
@@ -24,42 +30,63 @@ class ControladorUsuario extends Controller {
                 return view('home')->with('usuario', $usuario);
                 break;
 
-            case isset($_POST['edita']):
+            case isset($_POST['editaUsuario']):
                 $usuario = ControladorUsuario::buscarPorCedula($request->get('cedula'));
-                $user = User::find(Auth::user()->id);
+                $user = ControladorUsuario::buscarUser($usuario);
 
-                $usuario->clave = $request->get('clave');
-                $user->password = bcrypt($request->get('clave'));
+                $emailUsuario = ControladorUsuario::buscarPorEmail($request->get('email'));
 
-                $usuario->nombre = $request->get('nombre');
-                $user->name = $request->get('nombre');
+                if($emailUsuario != null) {
+                    $usuario->clave = $request->get('clave');
+                    $user->password = bcrypt($request->get('clave'));
+                    $usuario->nombre = $request->get('nombre');
+                    $user->name = $request->get('nombre');
+                    $usuario->telefono = $request->get('telefono');
 
-                $validarEmail = ControladorUsuario::buscarPorEmail($request->get('email'));
-                if($validarEmail != null) {
-                    if(Auth::user()->email == $request->get('email')){
-                        $usuario->email = $request->get('email');
-                        $user->email = $request->get('email');
+                    $usuario->save();
+                    $user->save();
+
+                    $usuarios = Usuario::all();
+
+                    if($request->get('email') == Auth::user()->email) {
+                        $_REQUEST['accion'] = 'datosUsuario';
+                        return view('home')->with('usuario', $usuario)->with('usuarios', $usuarios);
                     } else {
-                        echo '<script>alert("El email ya esta en uso");</script>';
+                        if ($emailUsuario->email == $request->get('email') && $emailUsuario->email != $usuario->email) {
+                            return view('usuario/listar')->with('usuario', $usuario)->with('usuarios', $usuarios)
+                            ->with('mensaje', 'El/Su email no será modificado porque pertenece al usuario ' . $emailUsuario->nombre);
+                        } else {
+                            return view('usuario/listar')->with('usuario', $usuario)->with('usuarios', $usuarios);
+                        }
                     }
                 }else{
+                    $usuario->clave = $request->get('clave');
+                    $user->password = bcrypt($request->get('clave'));
+                    $usuario->nombre = $request->get('nombre');
+                    $user->name = $request->get('nombre');
                     $usuario->email = $request->get('email');
                     $user->email = $request->get('email');
+                    $usuario->telefono = $request->get('telefono');
+
+                    $usuario->save();
+                    $user->save();
+
+                    $usuarios = Usuario::all();
+                    if($request->get('email') == Auth::user()->email) {
+                        $_REQUEST['accion'] = 'datosUsuario';
+                        return view('home')->with('usuario', $usuario)->with('usuarios', $usuarios);
+                    } else {
+                        return view('usuario/listar')->with('usuario', $usuario)->with('usuarios', $usuarios);
+                    }
                 }
 
-                $usuario->telefono = $request->get('telefono');
-
-                $usuario->save();
-                $user->save();
-
                 $_REQUEST['accion'] = 'editarUsuario';
-                return view('home')->with('usuario', $usuario);
                 break;
 
-                case isset($_POST['listarUsuarios']):
+                case isset($_POST['user_list']):
                 $usuarios = Usuario::all();
                 $_REQUEST['accion'] = 'listarUsuarios';
-                
+                return view('usuario/listar')->with('usuarios', $usuarios);
             default:
                 break;
         }
@@ -70,7 +97,6 @@ class ControladorUsuario extends Controller {
         return view('usuario.index')->with('usuarios',$usuarios);
     }
 
-    /*Buscar por cedula */
     public function buscarPorCedula($cedula) {
         $usuario = Usuario::where('cedula', $cedula)->first();
         return $usuario;
