@@ -30,6 +30,18 @@ class ControladorUsuario extends Controller {
                 return view('home')->with('usuario', $usuario);
                 break;
 
+            case isset($_POST['buscar']):
+                $usuario = ControladorUsuario::buscarPorCedula($_POST['cedula']);
+                if($usuario != null){
+                    $_REQUEST['accion'] = 'datosUsuario';
+                    return view('usuario/buscar')->with('usuario', $usuario);
+                }else{
+                    $_REQUEST['accion'] = 'buscar';
+                    return view('usuario/buscar')->with('mensaje', 'USUARIO NO ENCONTRADO');
+                }
+
+                break;
+
             case isset($_POST['editaUsuario']):
                 $usuario = ControladorUsuario::buscarPorCedula($request->get('cedula'));
                 $user = ControladorUsuario::buscarUser($usuario);
@@ -94,7 +106,7 @@ class ControladorUsuario extends Controller {
 
     public function index() {
         $usuarios = Usuario::all();
-        return view('usuario.index')->with('usuarios',$usuarios);
+        return view('home')->with('usuarios',$usuarios);
     }
 
     public function buscarPorCedula($cedula) {
