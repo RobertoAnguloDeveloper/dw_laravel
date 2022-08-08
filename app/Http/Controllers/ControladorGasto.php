@@ -30,7 +30,7 @@ class ControladorGasto extends Controller {
                 if($gastosABuscar->isEmpty()) {
                     return view('gasto/listarTodos')->with('gastos',$gastosAll)->with('mensaje','No se encontraron gastos para el usuario con cédula ' . $request->get('cedula'));
                 } else {
-                    return view('gasto/listarTodos')->with('gastos', $gastosAll);
+                    return view('gasto/listarTodos')->with('gastos', $gastosABuscar);
                 }
                 break;
 
