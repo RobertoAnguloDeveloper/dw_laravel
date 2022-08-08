@@ -89,9 +89,8 @@
                     </tr>
                 </table>
             @endif
-            
+
             @if (isset($mensaje))
-                {{--  --}}
                 <div class="alert alert-success" role="alert">
                     {{ $mensaje }}
                 </div>

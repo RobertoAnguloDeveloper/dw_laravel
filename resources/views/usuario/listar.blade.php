@@ -14,8 +14,9 @@
                 <div class="col">
                     <h2 class="text-white"><u>USUARIOS</u></h2>
                 </div>
+                @if (isset($usuarios) && count($usuarios) > 0)
                 <div class="col-3 justify-content-end">
-                    <form id="buscarForm" action="/gastos" method="POST">
+                    <form id="buscarForm" action="/usuarios" method="POST">
                         @csrf
                         <div class="row">
                             <div style="margin-right: -35px; margin-left: 35px;" class="col-8">
@@ -91,6 +92,7 @@
                     </tr>
                 @endforeach
             </table>
+            @endif
         </div>
         <style>
             input[disabled] {

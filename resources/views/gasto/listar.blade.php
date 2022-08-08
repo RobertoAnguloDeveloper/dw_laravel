@@ -19,16 +19,16 @@
                         </td>
                         <td>
                             <div style="margin-right: -100px;">
-                                @if (isset($gastos) && count($gastos) > 0)
-                                    <form class="col-2" id="agregarGasto" action="/gastos" method="POST">
-                                        @csrf
-                                        <div>
-                                            <input type="submit" name="agregarGasto" class="btn btn-success" value="Agregar Gasto">
-                                        </div>
-                                    </form>
+                                <form class="col-2" id="agregarGasto" action="/gastos" method="POST">
+                                    @csrf
+                                    <div>
+                                        <input type="submit" name="agregarGasto" class="btn btn-success" value="Agregar Gasto">
+                                    </div>
+                                </form>
                             </div>
                         </td>
                     </tr>
+                    @if (isset($gastos) && count($gastos) > 0)
                 </table>
             </div>
             <table style="margin-left:-40px;" class="table table-striped table-dark table-bordered">
@@ -87,7 +87,7 @@
                                 <script>
                                     ids{{ $id }} = ['usuario_id{{ $id }}', 'fecha{{ $id }}', 'valor_total_sin_iva{{ $id }}',
                                         'iva_total{{ $id }}', 'valor_total_con_iva{{ $id }}', 'nombre_gasto{{ $id }}', 'lugar{{ $id }}', 'descripcion{{ $id }}'];
-                                    idsWithCedula{{ $id }} = ['id{{ $id }}', 'usuario_id{{ $id }}', 'fecha{{ $id }}', 'valor_total_sin_iva{{ $id }}',
+                                        idsWithId{{ $id }} = ['id{{ $id }}', 'usuario_id{{ $id }}', 'fecha{{ $id }}', 'valor_total_sin_iva{{ $id }}',
                                         'iva_total{{ $id }}', 'valor_total_con_iva{{ $id }}', 'nombre_gasto{{ $id }}', 'lugar{{ $id }}', 'descripcion{{ $id }}'];
                                 </script>
                                 <a href="#" onclick="ed(ids{{ $id }});" style="padding: 0%;"
@@ -107,10 +107,6 @@
                 @endforeach
             </table>
         </div>
-        @else
-            <div class="col-12">
-                <h2 class="text-white">No hay gastos registrados</h2>
-            </div>
         @endif
 
         <style>

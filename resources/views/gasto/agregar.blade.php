@@ -8,6 +8,10 @@
     </div>
 @endif
 
+@php
+    $cedula = \App\Http\Controllers\ControladorUsuario::buscarPorEmail(Auth::user()->email)->cedula;
+@endphp
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-5">
@@ -20,35 +24,35 @@
                         <div class="row mb-3">
                             <label for="usuario_id" class="col-md-4 col-form-label text-md-end">{{ __('Cédula del usuario') }}</label>
                             <div class="col-md-6">
-                                <input id="usuario_id" type="text" class="form-control" name="usuario_id" required autofocus>
+                                <input id="usuario_id" type="text" class="form-control" name="usuario_id" value="{{$cedula}}" disabled>
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <label for="fecha" class="col-md-4 col-form-label text-md-end">{{ __('Fecha') }}</label>
                             <div class="col-md-6">
-                                <input id="fecha" type="date" class="form-control" name="fecha" required>
+                                <input id="fecha" type="date" class="form-control" name="fecha" required autofocus>
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <label for="valor_total_sin_iva" class="col-md-4 col-form-label text-md-end">{{ __('Valor total sin iva') }}</label>
                             <div class="col-md-6">
-                                <input id="valor_total_sin_iva" type="text" class="form-control" name="valor_total_sin_iva" required>
+                                <input id="valor_total_sin_iva" type="number" class="form-control" name="valor_total_sin_iva" required>
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <label for="iva_total" class="col-md-4 col-form-label text-md-end">{{ __('Iva total') }}</label>
                             <div class="col-md-6">
-                                <input id="iva_total" type="text" class="form-control" name="iva_total" required>
+                                <input id="iva_total" type="number" class="form-control" name="iva_total" required>
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <label for="valor_total_con_iva" class="col-md-4 col-form-label text-md-end">{{ __('Valor total con iva') }}</label>
                             <div class="col-md-6">
-                                <input id="valor_total_con_iva" type="text" class="form-control" name="valor_total_con_iva" required>
+                                <input id="valor_total_con_iva" type="number" class="form-control" name="valor_total_con_iva" required>
                             </div>
                         </div>
 
@@ -73,9 +77,14 @@
                             </div>
                         </div>
 
+                        <script>
+                                idsWithId = ['usuario_id', 'fecha', 'valor_total_sin_iva',
+                                'iva_total', 'valor_total_con_iva', 'nombre_gasto', 'lugar', 'descripcion'];
+                        </script>
+
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-5">
-                                <input type="submit" name="agrega" class="btn btn-primary" value="{{ __('Agregar') }}">
+                                <input type="submit" onclick="toSubmit(idsWithId);" name="agrega" class="btn btn-primary" value="{{ __('Agregar') }}">
                             </div>
                         </div>
                     </form>
@@ -85,3 +94,11 @@
     </div>
 </div>
 @endsection
+
+<script>
+    function toSubmit(idsWithId) {
+        for (i = 0; i < idsWithId.length; i++) {
+            document.getElementById(idsWithId[i]).disabled = false;
+        }
+    }
+</script>
