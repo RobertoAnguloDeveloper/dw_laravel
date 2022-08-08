@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::resource('usuarios','\App\Http\Controllers\ControladorUsuario');
+Route::resource('gastos','\App\Http\Controllers\ControladorGasto');
 
 Route::get('/', function () {
     /*If an user is logged dont sent to login page */

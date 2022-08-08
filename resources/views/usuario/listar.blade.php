@@ -1,14 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    {{-- Validate if variable mensaje exist using toast message --}}
 
     @if (isset($mensaje))
-        {{--  --}}
         <div class="alert alert-success" role="alert">
             {{ $mensaje }}
         </div>
     @endif
+
     <div class="container">
         <div class="justify-content-center">
             <div class="row mb-2">
@@ -16,7 +15,7 @@
                     <h2 class="text-white"><u>USUARIOS</u></h2>
                 </div>
                 <div class="col-3 justify-content-end">
-                    <form id="buscarForm" action="/usuarios" method="POST">
+                    <form id="buscarForm" action="/gastos" method="POST">
                         @csrf
                         <div class="row">
                             <div style="margin-right: -35px; margin-left: 35px;" class="col-8">
@@ -82,7 +81,7 @@
                                 <input type="submit" onclick="toSubmit(idsWithCedula{{ $id }});"
                                     name="editaUsuario" style="padding:0%;" class="btn btn-success btn-sm" value="Guardar">
                         </form>
-                        <form action="/usuarios/{{ $usuario->id }}" method="POST" class="d-inline">
+                        <form action="{{ route('usuarios.destroy', $usuario->cedula) }}" method="POST" class="d-inline">
                             @csrf
                             @method('DELETE')
                             <input type="submit" style="padding:0%;" name="eliminar"

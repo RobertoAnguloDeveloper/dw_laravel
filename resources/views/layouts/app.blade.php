@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -63,10 +64,25 @@
                                         <input type="submit" class="dropdown-item" name="user_data" value="{{ __('Datos de usuario') }}">
                                     </form>
 
-                                    <form id="datosUsuario" action="/usuarios" method="POST">
+                                    <form id="gastosUsuario" action="/gastos" method="POST">
                                         @csrf
-                                        <input type="submit" class="dropdown-item" name="user_list" value="{{ __('Administrar Usuarios') }}">
+                                        <input type="submit" class="dropdown-item" name="gastoUser_list" value="{{ __('Gastos') }}">
                                     </form>
+
+                                    @php
+                                        $rol = \App\Http\Controllers\ControladorUsuario::rol();
+                                    @endphp
+
+                                    @if ($rol == 'admin')
+                                        <form id="adminUsuarios" action="/usuarios" method="POST">
+                                            @csrf
+                                            <input type="submit" class="dropdown-item" name="user_list" value="{{ __('Administrar Usuarios') }}">
+                                        </form>
+                                        <form id="gastosUsuario" action="/gastos" method="POST">
+                                            @csrf
+                                            <input type="submit" class="dropdown-item" name="gastos_list" value="{{ __('Todos los gastos') }}">
+                                        </form>
+                                    @endif
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

@@ -19,6 +19,16 @@ class ControladorUsuario extends Controller {
         return $user;
     }
 
+    public function rol(){
+        $usuario = ControladorUsuario::buscarPorEmail(Auth::user()->email);
+
+        if($usuario->cedula == "73202647"){
+            return 'admin';
+        }else{
+            return 'user';
+        }
+    }
+
     public function store(Request $request) {
         $usuario = new Usuario();
         $usuarios = Usuario::all();
@@ -128,6 +138,15 @@ class ControladorUsuario extends Controller {
         }
     }
 
+    public function existeCedula($cedula) {
+        $usuario = Usuario::where('cedula', $cedula)->first();
+        if ($usuario) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function editar(Request $request) {
         $usuarios = new Usuario();
 
@@ -142,6 +161,18 @@ class ControladorUsuario extends Controller {
         return redirect('usuarios');
     }
 
+    public function destroy($cedula) {
+        $usuario = ControladorUsuario::buscarPorCedula($cedula);
+        $user = ControladorUsuario::buscarUser($usuario);
+        if($usuario->cedula == "73202647"){
+            return view('usuario/listar')->with('usuarios', Usuario::all())->with('mensaje', 'No se puede eliminar el usuario administrador');
+        }else{
+            $mensaje = "El usuario " . $usuario->nombre . " ha sido eliminado";
+            $usuario->delete();
+            $user->delete();
+            return view('usuario/listar')->with('usuarios', Usuario::all())->with('mensaje', $mensaje);
+        }
+    }
 }
 
 ?>
