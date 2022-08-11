@@ -23,6 +23,10 @@ class CreateGastosTable extends Migration
             $table->string('nombre_gasto');
             $table->string('lugar');
             $table->text('descripcion');
+
+            /*Set Engine InnoDb */
+            $table->engine = 'InnoDB';
+            /*Set ForeignKey */
         });
     }
 

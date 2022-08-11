@@ -19,6 +19,7 @@ class CreateUsuariosTable extends Migration
             $table->string('nombre');
             $table->string('telefono');
             $table->string('email')->unique('email');
+            $table->engine = 'InnoDB';
         });
     }
 
