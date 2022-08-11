@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Usuario;
-use App\Models\User;
 use App\Models\Gasto;
 use Illuminate\Support\Facades\Auth;
 
