@@ -109,6 +109,8 @@ class ControladorUsuario extends Controller {
                 $usuarios = Usuario::all();
                 $_REQUEST['accion'] = 'listarUsuarios';
                 return view('usuario/listar')->with('usuarios', $usuarios);
+                break;
+
             default:
                 break;
         }
